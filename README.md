@@ -28,12 +28,12 @@ npm run build && npm run lint && npm test
 계정을 만들면 `profiles` 행이 트리거로 자동 생성됩니다. 이름·이모지·색상은 앱의 설정 화면에서 바꿉니다.
 
 ### Supabase MCP (로컬 개발용, 선택)
-AI가 스키마·RLS·어드바이저를 조회하게 해 주는 개발 도구입니다. 앱 실행에는 필요 없습니다.
-저장소의 `.mcp.json`에 **읽기 전용**(`read_only=true`)으로 설정되어 있어요. 마이그레이션은 위처럼 SQL Editor에서 실행합니다.
+AI가 스키마·RLS·어드바이저 조회, 마이그레이션 적용 등을 하게 해 주는 개발 도구입니다. 앱 실행에는 필요 없습니다.
+저장소의 `.mcp.json`에 **쓰기 가능**(`read_only` 없음) 상태로 설정되어 있어요. 실제 DB에 바로 반영되니 주의하세요.
 
 1. 저장소를 받은 뒤 **일반 터미널**(IDE 확장 아님)에서 `claude /mcp` → `supabase` 선택 → Authenticate (브라우저 로그인)
 2. (선택) 에이전트 스킬: `npx skills add supabase/agent-skills`
-3. 쓰기 권한이 필요하면 `.mcp.json` URL에서 `read_only=true`를 지우세요. 실제 DB에 바로 반영되니 주의하세요.
+3. 읽기 전용으로 되돌리려면 `.mcp.json` URL에 `read_only=true`를 추가하세요.
 
 > 클라우드(웹) 세션에서는 `mcp.supabase.com`이 네트워크 정책에 막혀 있고 브라우저 인증도 어려워 로컬 사용을 기준으로 합니다.
 
